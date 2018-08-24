@@ -66,3 +66,78 @@ function shuffle(array) {
   }
 
 }
+
+
+
+//display all backgroundImage
+function display(){
+
+  clearTimeout(id2);
+  //displaying every backgroundImage after the randomize
+  //to position the differents elements
+  for (background=0;background<deck.length;background++){
+    deck[background].style.backgroundImage = "url('img/"+deck_list[background]+"')";
+  }
+
+}
+
+//will save the two different choices and lanch a check funciton
+function compare(n){
+
+  //we avoid player to use the function more than 2 times
+  //in a row for displaying only 2 card at max.
+  //the function will do nothing if the count is at more than 2
+  if (max_card <2){
+    //rotating image in front to show the background
+    //90deg is pixel perfect so we cant spam click on
+    //the same image
+    backcard[n].style.transform = "rotateY(90deg)";
+
+    //saving the first choice
+    if (choice1===""){
+      choice1 = deck_list[n];
+      save=n;
+    }
+
+    //when we have tje first choice we go here
+    else {
+      //saving second choice
+      choice2 = deck_list[n];
+      save2=n;
+      //comapring the 2 choices with 1s timer to let the 2 cards
+      id = setTimeout(check,1000);
+      //display for 1 second
+      tries++;
+    }
+    //count ++
+    max_card++;
+  }
+}
+
+function check(){
+  //clearing timeout to avoid animation repetition
+  clearTimeout(id);
+
+  //counting tries
+  document.getElementById("guess").innerHTML = tries;
+
+  //happen only if the two choices are different
+  if (choice1 != choice2){
+    //getting back the 2 front images to their original
+    //position
+    backcard[save].style.transform = "rotateY(0deg)";
+    backcard[save2].style.transform = "rotateY(0deg)";
+  }
+
+  //else nothing happen the 2 cards dont move so we let
+  //the player see the pairs
+  else{
+    //if the player find one pair we had 1 so we can control
+    //the end of the game
+    score++;
+  }
+  //reseting choice1 var for the compare function plus the counter else
+  //we couldn't play anymore
+  choice1="";
+  max_card=0;
+}
