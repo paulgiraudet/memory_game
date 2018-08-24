@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <div class="container-fluid board d-flex align-items-center px-5">
+    <div class="row my-auto">
+      <div class="col-md-6">
+        <div class="col-12">
+
+          <img src="https://fontmeme.com/permalink/180823/9dfd71b0639754e61a10ae78e081532b.png" alt="police-pokemon" border="0" class="img-fluid d-block mx-auto mt-5 mt-md-2">
+
+          <ul class="mt-5 pl-0">
+            <li class="rules"><img src="img/pokeball.svg" alt="logo pokeball" class="img-fluid logo_pokeball mr-3">Match all the pair to win the game</li>
+            <li class="rules"><img src="img/pokeball.svg" alt="logo pokeball" class="img-fluid logo_pokeball mr-3">You have 40 seconds to do it</li>
+            <li class="rules"><img src="img/pokeball.svg" alt="logo pokeball" class="img-fluid logo_pokeball mr-3">Try to beat the record</li>
+          </ul>
+
+          <div class="col-12 mt-5" id="start_game">
+            <img src="https://fontmeme.com/permalink/180823/72f97096756bbdab6e216df4e7890e14.png" alt="police-pokemon" border="0" class="img-fluid d-block mx-auto start" onclick="start()">
+          </div>
+
+          <div class="col-12 mt-2" id="restart_game">
+            <img src="https://fontmeme.com/permalink/180823/76f6d1168eadb7d81d5ef604f1c0bcb0.png" alt="police-pokmon" border="0" class="img-fluid d-block mx-auto restart" onclick="start()">
+          </div>
+        </div>
+
+        <div class="col-12 mt-4">
+          <div class="row">
+
+            <div class="col-6">
+              <img src="https://fontmeme.com/permalink/180824/fd782e47af29c3972da235b178436eba.png" alt="police-pokmon" border="0" class="img-fluid d-block mx-auto restart">
+              <p id="timer" class="mt-5 timer text-center"></p>
+            </div>
+
+            <div class="col-6">
+              <img src="https://fontmeme.com/permalink/180824/05509557e565515aa6d199839d61bb23.png" alt="police-pokmon" border="0" class="img-fluid d-block mx-auto restart">
+              <p id="guess" class="mt-5 guess text-center"></p>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- end of col-12 -->
+
+          <div class="item1 d-none d-md-block">
+    				<a href="#openModal1" class="rules"><img src="img/pokeball.svg" alt="logo pokeball" class="img-fluid logo_pokeball mr-3">Hall of Fame</a>
+    			</div>
+
+          <div id="openModal1" class="modal-item-1">
+      			<div>
+      				<a href="#close" title="Close" class="fermer-item1">
+      					<i class="fa fa-times fa-3x"></i>
+      				</a>
+      				<div class="modal-item1">
+
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-4">
+                      <p class="hallOfFame text-center">HALL<br>OF<br>FAME</p>
+                    </div>
+                    <div class="col-4">
+                      <img src="https://fontmeme.com/permalink/180824/5697cf892e3f24a7d1089937c8e69286.png" alt="police-pokmon" border="0" class="img-fluid d-block mx-auto mt-4">
+                      <ol class="bestTime mt-3">
+                        <li>Tictac - 15 seconds</li>
+                        <li>Julie - 13 seconds</li>
+                        <li>Amélie - 7 seconds</li>
+                        <li>Pierre - 7 seconds</li>
+                      </ol>
+                    </div>
+                    <div class="col-4">
+                      <img src="https://fontmeme.com/permalink/180824/0e5420ef6133765b1bb0ac76d09bc29a.png" alt="police-pokmon" border="0" class="img-fluid d-block mx-auto mt-4">
+                      <ol class="bestGuess mt-3">
+                        <li>Tictac - 11</li>
+                        <li>Julie - 12</li>
+                        <li>Amélie - 13</li>
+                        <li>Pierre - 14</li>
+                      </ol>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- end of container -->
+      				</div>
+              <!-- end of modal-item -->
+      			</div>
+
+      		</div>
+          <!-- end of openModal1 -->
+
+      </div>
+
+
+
+      <div class="col-md-6 mb-5 mb-md-0 d-flex align-items-center">
+        <div class="row">
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('0')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('1')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('2')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('3')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('4')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('5')">
+          </div>
+          <div class="col-3 card px-0 ">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('6')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('7')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('8')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('9')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('10')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('11')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('12')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('13')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('14')">
+          </div>
+          <div class="col-3 card px-0">
+            <img src="img/back.png" alt="back of card" class="img-fluid backcard" onclick="compare('15')">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
