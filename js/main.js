@@ -68,6 +68,110 @@ function shuffle(array) {
 }
 
 
+      //start function
+      function start(){
+        time=40;
+        //shuffling deck
+        shuffle(deck_list);
+        //display backgrounds after 1s cause of pokeball transition
+        id2=setTimeout(display,1800);
+        //s    id4=setTimeout(rotateCardEhowing pokeball to hide backgrounds
+        rotateCardStart();
+        //launching timer
+        id5=setTimeout(timer,1800);
+        //allowing player to play only when the game is fully displayed
+        id6=setTimeout(resetMaxCard,1800);
+
+        //avoid player to spam start game function
+        document.getElementById("start_game").style.display ="none";
+        restart.style.display ="none";
+        //resetting
+        tries = 0 ;
+        score = 0 ;
+        choice1="";
+        choice2="";
+        document.getElementById("guess").innerHTML = tries;
+      }
+
+      function resetMaxCard(){
+        //set count to 0 to permit player to click on cards
+        max_card=0;
+      }
+
+      //used to avoid a bug with card transition rotation
+      // function maxCardAdd(){
+      //   clearTimeout(id6);
+      //   max_card++;
+      // }
+
+      //timer function
+      function timer(){
+
+          clearTimeout(id5);
+
+          //display time in html
+          document.getElementById("timer").innerHTML = time+" s";
+
+          if (score===8){
+            clearTimeout(id3);
+            restart.style.display ="block";
+            // document.getElementById("timer").innerHTML = "";
+          }
+          //stopping the timer
+          else if (time===0){
+            //setting count to 2 to stop the game
+            max_card=2;
+            clearTimeout(id3);
+            //showing restart button
+            restart.style.display ="block";
+            document.getElementById("timer").innerHTML = "";
+
+            //showing full cards to player if he lose
+            rotateCardEnd();
+          }
+          //timeout of 1 second on our function till 0s
+          else{
+            id3=setTimeout(timer,1000);
+          }
+          //sum -1 cause our timer is in seconds
+          time--;
+      }
+
+      //function to show cards if user is losing to show him the full deck
+      function rotateCardEnd(){
+
+        //hide pokeball to show the card hidden behind
+        backcard[rotate].style.transform = "rotateY(90deg)";
+        //going to the next card
+        rotate++;
+
+        //stopping the timer
+        if (rotate===deck.length){
+          clearTimeout(id4);
+          rotate = 0;
+        }
+        //timeout of 0.1 second on our function till the end of display
+        else{
+          id4=setTimeout(rotateCardEnd,100);
+        }
+      }
+
+      function rotateCardStart(){
+        //show pokeball to hide the card behind
+        backcard[rotate].style.transform = "rotateY(0deg)";
+        //going to the next card
+        rotate++;
+
+        //stopping the timer
+        if (rotate===deck.length){
+          clearTimeout(id4);
+          rotate = 0;
+        }
+        //timeout of 0.1 second on our function till the end of display
+        else{
+          id4=setTimeout(rotateCardStart,100);
+        }
+      }
 
 //display all backgroundImage
 function display(){

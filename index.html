@@ -20,6 +20,47 @@
 
 <body>
 
+  <div class="container-fluid board d-flex align-items-center px-5">
+    <div class="row my-auto">
+      <div class="col-md-6">
+        <div class="col-12">
+
+          <img src="https://fontmeme.com/permalink/180823/9dfd71b0639754e61a10ae78e081532b.png" alt="police-pokemon" border="0" class="img-fluid d-block mx-auto mt-5 mt-md-2">
+
+          <ul class="mt-5 pl-0">
+            <li class="rules"><img src="img/pokeball.svg" alt="logo pokeball" class="img-fluid logo_pokeball mr-3">Match all the pair to win the game</li>
+            <li class="rules"><img src="img/pokeball.svg" alt="logo pokeball" class="img-fluid logo_pokeball mr-3">You have 40 seconds to do it</li>
+            <li class="rules"><img src="img/pokeball.svg" alt="logo pokeball" class="img-fluid logo_pokeball mr-3">Try to beat the record</li>
+          </ul>
+
+          <div class="col-12 mt-5" id="start_game">
+            <img src="https://fontmeme.com/permalink/180823/72f97096756bbdab6e216df4e7890e14.png" alt="police-pokemon" border="0" class="img-fluid d-block mx-auto start" onclick="start()">
+          </div>
+
+          <div class="col-12 mt-2" id="restart_game">
+            <img src="https://fontmeme.com/permalink/180823/76f6d1168eadb7d81d5ef604f1c0bcb0.png" alt="police-pokmon" border="0" class="img-fluid d-block mx-auto restart" onclick="start()">
+          </div>
+        </div>
+
+        <div class="col-12 mt-4">
+          <div class="row">
+
+            <div class="col-6">
+              <img src="https://fontmeme.com/permalink/180824/fd782e47af29c3972da235b178436eba.png" alt="police-pokmon" border="0" class="img-fluid d-block mx-auto restart">
+              <p id="timer" class="mt-5 timer text-center"></p>
+            </div>
+
+            <div class="col-6">
+              <img src="https://fontmeme.com/permalink/180824/05509557e565515aa6d199839d61bb23.png" alt="police-pokmon" border="0" class="img-fluid d-block mx-auto restart">
+              <p id="guess" class="mt-5 guess text-center"></p>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- end of col-12 -->
+
+
 
       <div class="col-md-6 mb-5 mb-md-0 d-flex align-items-center">
         <div class="row">
